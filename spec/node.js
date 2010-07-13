@@ -1,9 +1,17 @@
+var path = require('path');
+var root_path = path.join(__dirname, '..');
+var spec_path = path.join(root_path, 'spec');
 
-require.paths.unshift('spec', './spec/lib', 'lib')
+require.paths.unshift(
+  path.join(root_path, 'spec'),
+  path.join(root_path, 'spec', 'lib'),
+  path.join(root_path, 'lib')
+);
+
 require('jspec')
 yaml = require('yaml')
 
 JSpec
-  .exec('spec/spec.core.js')
-  .run({ reporter: JSpec.reporters.Terminal, fixturePath: 'spec/fixtures', failuresOnly: true })
+  .exec(path.join(spec_path, 'spec.core.js'))
+  .run({ reporter: JSpec.reporters.Terminal, fixturePath: path.join(spec_path, 'fixtures'), failuresOnly: true })
   .report()
