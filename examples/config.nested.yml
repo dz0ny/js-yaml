@@ -1,0 +1,13 @@
+development:
+  # server 1 params
+  server1:
+    host: "localhost"
+    port: 4000
+
+  # server 2 params
+  server2:
+    host: "localhost"
+    port: 3019
+
+  # listens
+  port: 7000
